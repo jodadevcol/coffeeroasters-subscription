@@ -1,16 +1,29 @@
 ---
-
+import Layout from '@layouts/Layout.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title='Home'>
+  <section class='px-5 lg:px-10'>
+    <div class='max-w-7xl mx-auto'>
+      <!-- <div class=' object-contain object-center '>
+        <img src={Hero.src} alt='' />
+      </div> -->
+
+      <article class='relative max-h-[600px] h-screen rounded-xl overflow-hidden bg-dark-light'>
+        <div class='hero-image'></div>
+
+        <header>
+          <h1>
+            <span>Great coffee made simple.</span>
+          </h1>
+
+          <div>
+            <p>Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
+          </div>
+
+          <a href='#'><span>Create your plan</span></a>
+        </header>
+      </article>
+    </div>
+  </section>
+</Layout>

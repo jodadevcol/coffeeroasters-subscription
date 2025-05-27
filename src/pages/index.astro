@@ -1,28 +1,168 @@
 ---
 import Layout from '@layouts/Layout.astro'
+
+import Danche from '@assets/home/desktop/bag-danche.png'
+import GranEspresso from '@assets/home/desktop/bag-gran-espresso.png'
+import Piccollo from '@assets/home/desktop/bag-piccollo.png'
+import Planalto from '@assets/home/desktop/bag-planalto.png'
+
+import Hero from '@assets/home-hero-small.avif'
+
+import CoffeeBean from '@icons/CoffeeBean.astro'
+import Gift from '@icons/Gift.astro'
+import Truck from '@icons/Truck.astro'
+
+const OurCollection = [
+  {
+    name: 'Gran Espresso',
+    description: 'Light and flavorful blend with cocoa and black pepper for an intense experience.',
+    image: GranEspresso
+  },
+  {
+    name: 'Planalto',
+    description: 'Brazilian dark roast with rich and velvety body, and hints of fruits and nuts.',
+    image: Planalto
+  },
+  {
+    name: 'Piccollo',
+    description: 'Mild and smooth blend featuring notes of toasted almond and dried cherry.',
+    image: Piccollo
+  },
+  {
+    name: 'Danche',
+    description: 'Ethiopian hand-harvested blend densely packed with vibrant fruit notes.',
+    image: Danche
+  }
+]
+
+const ChooseUs = [
+  {
+    title: 'Best quality',
+    description: 'Discover an endless variety of the world’s best artisan coffee from each of our roasters.',
+    image: CoffeeBean
+  },
+  {
+    title: 'Exclusive benefits',
+    description: 'Special offers and swag when you subscribe, including 30% off your first shipment.',
+    image: Gift
+  },
+  {
+    title: 'Free shipping',
+    description: 'We cover the cost and coffee is delivered fast. Peak freshness: guaranteed.',
+    image: Truck
+  }
+]
 ---
 
 <Layout title='Home'>
-  <section class='px-5 lg:px-10'>
+  <!-- Hero -->
+  <section class='px-5 lg:px-10 mb-24'>
     <div class='max-w-7xl mx-auto'>
       <!-- <div class=' object-contain object-center '>
         <img src={Hero.src} alt='' />
       </div> -->
 
       <article class='relative max-h-[600px] h-screen rounded-xl overflow-hidden bg-dark-light'>
-        <div class='hero-image'></div>
+        <div class='hero-image size-full' style={`background-image: url("${Hero.src}")`}></div>
 
-        <header>
-          <h1>
-            <span>Great coffee made simple.</span>
-          </h1>
+        <!-- <div class='absolute inset-0 bg-gradient-to-b from-transparent to-dark-light opacity-50'></div> -->
+        <div class='absolute top-0 left-0 w-1/2 h-full z-10'>
+          <header class='flex flex-col justify-center pl-20 p-10 h-full'>
+            <h1 class='text-7xl font-primary font-black text-white mb-8'>
+              <span>Great coffee made simple.</span>
+            </h1>
 
-          <div>
-            <p>Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
-          </div>
+            <div class='max-w-[440px] mb-14 text-white'>
+              <p>Start your mornings with the world’s best coffees. Try our expertly curated artisan coffees from our best roasters delivered directly to your door, at your schedule.</p>
+            </div>
 
-          <a href='#'><span>Create your plan</span></a>
+            <a href='#' class='w-fit px-5 py-4 rounded-md bg-primary'>
+              <span class='mx-3 font-primary text-lg font-black text-white'>Create your plan</span>
+            </a>
+          </header>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Our Collection -->
+  <section class='px-5 lg:px-10 py-52 my-24'>
+    <div class='relative max-w-7xl mx-auto'>
+      <div
+        class='absolute -top-1/3 left-0 right-0 text-center z-10 opacity-50 after:block after:absolute after:-top-1/5 after:left-0 after:right-0 after:size-full after:bg-gradient-to-t after:from-white after:to-transparent'
+      >
+        <span class='font-primary text-[150px] font-black text-dark tracking-wide'>our collection</span>
+      </div>
+
+      <article class='px-20 relative z-20'>
+        <ul class='flex items-center justify-between gap-7'>
+          {
+            OurCollection.map((coffee) => {
+              return (
+                <li class='grow-0 basis-1/4'>
+                  <div class='w-full'>
+                    <picture class='max-w-full'>
+                      <img class='max-h-48 object-center object-cover' src={coffee.image.src} alt={coffee.name} />
+                    </picture>
+
+                    <div class='mt-20 text-center text-secondary'>
+                      <h2 class='mb-6 font-primary font-black text-2xl '>
+                        <span class=''>{coffee.name}</span>
+                      </h2>
+                      <p>{coffee.description}</p>
+                    </div>
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class='px-5 lg:px-10 pb-52'>
+    <div class='relative max-w-7xl mx-auto'>
+      <article class='relative h-[600px] px-20 py-[100px]'>
+        <div class='absolute inset-0 bg-secondary rounded-xl overflow-hidden -z-10'></div>
+
+        <header class='max-w-[540px] mx-auto mb-20 text-white text-center z-20'>
+          <h2 class='mb-8'>
+            <span class='font-primary text-4xl font-black leading-snug'>Why choose us?</span>
+          </h2>
+
+          <p>
+            A large part of our role is choosing which particular coffees will be featured in our range. This means working closely with the best coffee growers to give you a more impactful experience
+            on every level.
+          </p>
         </header>
+
+        <ul class='flex items-center justify-center gap-x-8 z-20'>
+          {
+            ChooseUs.map((Choose) => {
+              return (
+                <li class='w-full max-w-[340px] h-[380px] p-12 bg-primary rounded-lg overflow-hidden'>
+                  <div class='flex flex-col justify-end gap-6 size-full text-center text-white'>
+                    <div class='grow size-full text-accent'>
+                      {Choose.image && (
+                        <span class='flex items-center justify-center h-full'>
+                          <Choose.image class='max-w-20' />
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 class=''>
+                      <span class='font-primary font-black text-2xl'>{Choose.title}</span>
+                    </h3>
+
+                    <p>{Choose.description}</p>
+                  </div>
+                </li>
+              )
+            })
+          }
+        </ul>
       </article>
     </div>
   </section>

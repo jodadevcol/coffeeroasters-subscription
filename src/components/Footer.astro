@@ -1,3 +1,21 @@
 ---
-
+import FooterNavigation from '@components/FooterNavigation.astro'
+import SocialMedia from '@components/SocialMedia.astro'
+import Coffeeroasters from '@icons/Coffeeroasters.astro'
 ---
+
+<footer class='mb-10'>
+  <div class='relative max-w-7xl mx-auto bg-secondary rounded'>
+    <section class='grid grid-cols-[1fr_auto] gap-x-10 px-20 py-12'>
+      <div class='flex items-center justify-start max-w-[640px]'>
+        <a href='#' class='text-white'>
+          <Coffeeroasters />
+        </a>
+
+        <FooterNavigation class='ml-auto' />
+      </div>
+
+      <SocialMedia />
+    </section>
+  </div>
+</footer>

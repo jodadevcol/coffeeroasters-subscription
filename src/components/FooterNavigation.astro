@@ -1,0 +1,21 @@
+---
+import DataNavigation from '@data/navigation'
+
+const { class:classesNames } = Astro.props
+---
+
+<nav class:list={['text-dark', classesNames]}>
+  <ul class='flex items-center gap-8'>
+    {
+      DataNavigation.map(({ label, link }) => {
+        return (
+          <li>
+            <a href={link}>
+              <span class='uppercase text-xs font-bold tracking-widest'>{label}</span>
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</nav>

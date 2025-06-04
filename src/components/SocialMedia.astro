@@ -1,0 +1,40 @@
+---
+import Facebook from '@icons/Facebook.astro'
+import Instagram from '@icons/Instagram.astro'
+import Twitter from '@icons/Twitter.astro'
+
+const SocialMediaList = [
+  {
+    name: 'Facebook',
+    icon: Facebook,
+    link: '#'
+  },
+  {
+    name: 'Instagram',
+    icon: Instagram,
+    link: '#'
+  },
+  {
+    name: 'Twitter',
+    icon: Twitter,
+    link: '#'
+  }
+]
+---
+
+<!-- Social media list -->
+<ul class='col-auto flex items-center gap-4 text-white'>
+  {
+    SocialMediaList.map(({ name, icon: IconMedia, link }) => {
+      return (
+        <li class:list={
+          name.toLowerCase()
+        }>
+          <a href={link} class='inline-flex items-center justify-center size-6 aspect-square'>
+            {<IconMedia />}
+          </a>
+        </li>
+      )
+    })
+  }
+</ul>

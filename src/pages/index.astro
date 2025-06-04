@@ -52,6 +52,22 @@ const ChooseUs = [
     image: Truck
   }
 ]
+
+const HowItWorks = [
+  {
+    title: 'Pick your coffee',
+    description:
+      'Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.'
+  },
+  {
+    title: 'Choose the frequency',
+    description: 'Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.'
+  },
+  {
+    title: 'Receive and enjoy!',
+    description: 'We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning world-class coffees curated to provide a distinct tasting experience.'
+  }
+]
 ---
 
 <Layout title='Home'>
@@ -86,7 +102,7 @@ const ChooseUs = [
   </section>
 
   <!-- Our Collection -->
-  <section class='px-5 lg:px-10 py-52 my-24'>
+  <section class='px-5 lg:px-10 py-52 mt-32 mb-24'>
     <div class='relative max-w-7xl mx-auto'>
       <div
         class='absolute -top-1/3 left-0 right-0 text-center z-10 opacity-50 after:block after:absolute after:-top-1/5 after:left-0 after:right-0 after:size-full after:bg-gradient-to-t after:from-white after:to-transparent'
@@ -142,7 +158,8 @@ const ChooseUs = [
           {
             ChooseUs.map((Choose) => {
               return (
-                <li class='w-full max-w-[340px] h-[380px] p-12 bg-primary rounded-lg overflow-hidden'>
+                // max-w-[340px]
+                <li class='w-full h-[380px] p-12 bg-primary rounded-lg overflow-hidden'>
                   <div class='flex flex-col justify-end gap-6 size-full text-center text-white'>
                     <div class='grow size-full text-accent'>
                       {Choose.image && (
@@ -166,4 +183,64 @@ const ChooseUs = [
       </article>
     </div>
   </section>
+
+  <!-- How it works -->
+  <section class='px-5 lg:px-10 py-52'>
+    <div class='relative max-w-7xl mx-auto'>
+      <article class='px-20'>
+        <header class='mb-20'>
+          <h2>
+            <span class='text-2xl font-primary text-dark font-black'>How it works</span>
+          </h2>
+        </header>
+
+        <section class='relative'>
+          <div class='mb-16 grid gap-x-20 justify-items-start' style='grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));'>
+            {
+              HowItWorks.map((steps) => {
+                return (
+                  <div class='relative w-full group/step'>
+                    <span class='absolute top-1/2 left-8 -right-20 bg-accent h-0.5 -translate-y-1/2 z-0 group-last-of-type/step:hidden' />
+                    <span class='block aspect-square size-8 bg-transparent border-2 border-primary rounded-full z-10' />
+                  </div>
+                )
+              })
+            }
+          </div>
+
+          <ul class='grid gap-x-20 justify-items-start mb-16' style='grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));'>
+            {
+              HowItWorks.map(({ title, description }, index) => {
+                return (
+                  <li class='max-w-72'>
+                    <div>
+                      <span class='block mb-8 text-7xl font-primary font-black text-accent'>0{index + 1}</span>
+
+                      <h3 class='mb-11'>
+                        <span class='text-4xl text-secondary font-primary font-black'>{title}</span>
+                      </h3>
+
+                      <div>
+                        <p>{description}</p>
+                      </div>
+                    </div>
+                  </li>
+                )
+              })
+            }
+          </ul>
+
+          <a href='#' class='block w-fit px-5 py-4 rounded-md bg-primary'>
+            <span class='mx-3 font-primary text-lg font-black text-white'>Create your plan</span>
+          </a>
+        </section>
+      </article>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  /* .steps:last-of-type .steps--line {
+    display: none;
+  } */
+</style>

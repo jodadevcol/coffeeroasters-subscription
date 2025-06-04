@@ -10,6 +10,9 @@
   "compilerOptions": {
     "baseUrl": "./src/",
     "paths": {
+      "@data/*": [
+        "data/*"
+      ],
       "@styles/*": [
         "styles/*"
       ],
